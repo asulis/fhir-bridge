@@ -481,7 +481,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 AtemfrequenzComposition composition = FhirObservationTempOpenehrRespRate.map(observation);
 
                 //UUID ehrId = service.createEhr(); // <<< reflections error!
-                VersionUid versionUid = service.saveTemp(ehrUid, composition);
+                VersionUid versionUid = service.saveResp(ehrUid, composition);
                 logger.info("Composition created with UID {} for FHIR profile {}", versionUid, Profile.RESPIRATORY_RATE);
             }
         }
