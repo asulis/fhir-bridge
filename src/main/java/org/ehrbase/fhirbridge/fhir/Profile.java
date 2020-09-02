@@ -16,6 +16,9 @@ public enum Profile {
     // Observation Profiles
 
     BODY_TEMP("http://hl7.org/fhir/StructureDefinition/bodytemp", ResourceType.Observation),
+    
+    // Beispiel Atemfrequenz
+    RESPIRATORY_RATE("http://hl7.org/fhir/StructureDefinition/resprate", ResourceType.Observation),
 
     CORONARIRUS_NACHWEIS_TEST("https://charite.infectioncontrol.de/fhir/core/StructureDefinition/CoronavirusNachweisTest", ResourceType.Observation),
 

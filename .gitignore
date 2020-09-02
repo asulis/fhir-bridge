@@ -4,3 +4,7 @@
 target
 
 *-local.yml
+
+.classpath
+.project
+.settings
