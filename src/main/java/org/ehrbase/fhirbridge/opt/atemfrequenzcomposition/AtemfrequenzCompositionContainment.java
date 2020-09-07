@@ -1,5 +1,6 @@
 package org.ehrbase.fhirbridge.opt.atemfrequenzcomposition;
 
+import com.nedap.archie.rm.archetyped.FeederAudit;
 import com.nedap.archie.rm.datastructures.Cluster;
 import com.nedap.archie.rm.generic.Participation;
 import com.nedap.archie.rm.generic.PartyIdentified;
@@ -30,17 +31,19 @@ public class AtemfrequenzCompositionContainment extends Containment {
 
   public SelectAqlField<PartyIdentified> HEALTH_CARE_FACILITY = new AqlFieldImp<PartyIdentified>(AtemfrequenzComposition.class, "/context/health_care_facility", "healthCareFacility", PartyIdentified.class, this);
 
+  public SelectAqlField<Territory> TERRITORY = new AqlFieldImp<Territory>(AtemfrequenzComposition.class, "/territory", "territory", Territory.class, this);
+
+  public SelectAqlField<TemporalAccessor> START_TIME_VALUE = new AqlFieldImp<TemporalAccessor>(AtemfrequenzComposition.class, "/context/start_time|value", "startTimeValue", TemporalAccessor.class, this);
+
   public SelectAqlField<PartyProxy> COMPOSER = new AqlFieldImp<PartyProxy>(AtemfrequenzComposition.class, "/composer", "composer", PartyProxy.class, this);
 
   public SelectAqlField<SettingDefiningcode> SETTING_DEFININGCODE = new AqlFieldImp<SettingDefiningcode>(AtemfrequenzComposition.class, "/context/setting|defining_code", "settingDefiningcode", SettingDefiningcode.class, this);
 
-  public SelectAqlField<Territory> TERRITORY = new AqlFieldImp<Territory>(AtemfrequenzComposition.class, "/territory", "territory", Territory.class, this);
+  public SelectAqlField<FeederAudit> FEEDER_AUDIT = new AqlFieldImp<FeederAudit>(AtemfrequenzComposition.class, "/feeder_audit", "feederAudit", FeederAudit.class, this);
 
   public SelectAqlField<String> LOCATION = new AqlFieldImp<String>(AtemfrequenzComposition.class, "/context/location", "location", String.class, this);
 
   public SelectAqlField<CategoryDefiningcode> CATEGORY_DEFININGCODE = new AqlFieldImp<CategoryDefiningcode>(AtemfrequenzComposition.class, "/category|defining_code", "categoryDefiningcode", CategoryDefiningcode.class, this);
-
-  public SelectAqlField<TemporalAccessor> START_TIME_VALUE = new AqlFieldImp<TemporalAccessor>(AtemfrequenzComposition.class, "/context/start_time|value", "startTimeValue", TemporalAccessor.class, this);
 
   public ListSelectAqlField<Cluster> ERWEITERUNG = new ListAqlFieldImp<Cluster>(AtemfrequenzComposition.class, "/context/other_context[at0001]/items[at0002]", "erweiterung", Cluster.class, this);
 

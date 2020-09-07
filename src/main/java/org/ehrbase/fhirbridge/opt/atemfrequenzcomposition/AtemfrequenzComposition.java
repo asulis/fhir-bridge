@@ -1,5 +1,6 @@
 package org.ehrbase.fhirbridge.opt.atemfrequenzcomposition;
 
+import com.nedap.archie.rm.archetyped.FeederAudit;
 import com.nedap.archie.rm.datastructures.Cluster;
 import com.nedap.archie.rm.generic.Participation;
 import com.nedap.archie.rm.generic.PartyIdentified;
@@ -41,23 +42,26 @@ public class AtemfrequenzComposition {
   @Path("/context/health_care_facility")
   private PartyIdentified healthCareFacility;
 
+  @Path("/territory")
+  private Territory territory;
+
+  @Path("/context/start_time|value")
+  private TemporalAccessor startTimeValue;
+
   @Path("/composer")
   private PartyProxy composer;
 
   @Path("/context/setting|defining_code")
   private SettingDefiningcode settingDefiningcode;
 
-  @Path("/territory")
-  private Territory territory;
+  @Path("/feeder_audit")
+  private FeederAudit feederAudit;
 
   @Path("/context/location")
   private String location;
 
   @Path("/category|defining_code")
   private CategoryDefiningcode categoryDefiningcode;
-
-  @Path("/context/start_time|value")
-  private TemporalAccessor startTimeValue;
 
   @Path("/context/other_context[at0001]/items[at0002]")
   private List<Cluster> erweiterung;
@@ -110,6 +114,22 @@ public class AtemfrequenzComposition {
      return this.healthCareFacility ;
   }
 
+  public void setTerritory(Territory territory) {
+     this.territory = territory;
+  }
+
+  public Territory getTerritory() {
+     return this.territory ;
+  }
+
+  public void setStartTimeValue(TemporalAccessor startTimeValue) {
+     this.startTimeValue = startTimeValue;
+  }
+
+  public TemporalAccessor getStartTimeValue() {
+     return this.startTimeValue ;
+  }
+
   public void setComposer(PartyProxy composer) {
      this.composer = composer;
   }
@@ -126,12 +146,12 @@ public class AtemfrequenzComposition {
      return this.settingDefiningcode ;
   }
 
-  public void setTerritory(Territory territory) {
-     this.territory = territory;
+  public void setFeederAudit(FeederAudit feederAudit) {
+     this.feederAudit = feederAudit;
   }
 
-  public Territory getTerritory() {
-     return this.territory ;
+  public FeederAudit getFeederAudit() {
+     return this.feederAudit ;
   }
 
   public void setLocation(String location) {
@@ -148,14 +168,6 @@ public class AtemfrequenzComposition {
 
   public CategoryDefiningcode getCategoryDefiningcode() {
      return this.categoryDefiningcode ;
-  }
-
-  public void setStartTimeValue(TemporalAccessor startTimeValue) {
-     this.startTimeValue = startTimeValue;
-  }
-
-  public TemporalAccessor getStartTimeValue() {
-     return this.startTimeValue ;
   }
 
   public void setErweiterung(List<Cluster> erweiterung) {

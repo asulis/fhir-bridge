@@ -17,7 +17,7 @@ import org.ehrbase.fhirbridge.fhir.Profile;
 import org.ehrbase.fhirbridge.fhir.ProfileUtils;
 import org.ehrbase.fhirbridge.mapping.FhirDiagnosticReportOpenehrLabResults;
 import org.ehrbase.fhirbridge.mapping.FhirObservationTempOpenehrBodyTemperature;
-import org.ehrbase.fhirbridge.mapping.FhirObservationTempOpenehrRespRate;
+import org.ehrbase.fhirbridge.mapping.FhirObservationRespRateOpenehrRespRate;
 import org.ehrbase.fhirbridge.mapping.FhirSarsTestResultOpenehrPathogenDetection;
 import org.ehrbase.fhirbridge.opt.atemfrequenzcomposition.AtemfrequenzComposition;
 import org.ehrbase.fhirbridge.opt.intensivmedizinischesmonitoringkorpertemperaturcomposition.IntensivmedizinischesMonitoringKorpertemperaturComposition;
@@ -478,7 +478,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 logger.info(">>>>>>>>>>>>>>>>>> OBSERVATION RESP");
 
                 // FHIR Observation Temp => openEHR COMPOSITION
-                AtemfrequenzComposition composition = FhirObservationTempOpenehrRespRate.map(observation);
+                AtemfrequenzComposition composition = FhirObservationRespRateOpenehrRespRate.map(observation);
 
                 //UUID ehrId = service.createEhr(); // <<< reflections error!
                 VersionUid versionUid = service.saveResp(ehrUid, composition);
