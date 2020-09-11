@@ -5,6 +5,9 @@ target
 
 *-local.yml
 
+# VSCode editor settings
+.vscode
 .classpath
+.factorypath
 .project
-.settings
+org.eclipse*
