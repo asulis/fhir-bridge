@@ -487,7 +487,7 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
         }
         catch (Exception e)
         {
-            throw new UnprocessableEntityException("There was a problem saving the composition", e);
+            throw new UnprocessableEntityException("There was a problem saving the composition. Original Error Message: " + e.getMessage(), e);
         }
 
         observation.setId(new IdType(1L));

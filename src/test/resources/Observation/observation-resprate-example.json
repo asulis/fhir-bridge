@@ -3,7 +3,7 @@
   "id": "respiratory-rate",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/StructureDefinition/resprate"
+      "https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/respiratory-rate"
     ]
   },
   "text": {
