@@ -8,7 +8,9 @@ public enum OperationalTemplateData {
     CORONA_DIAGNOSIS("", "Diagnose.opt", "Diagnose"),
     CORONA_TEMP("", "Intensivmedizinisches Monitoring Korpertemperatur.opt", "Intensivmedizinisches Monitoring Korpertemperatur"),
     CORONA_TEST("", "Kennzeichnung Erregernachweis SARS-CoV-2.opt", "Kennzeichnung Erregernachweis SARS-CoV-2"),
-    CORONA_LAB("", "Laborbefund.opt", "Laborbefund");
+    CORONA_LAB("", "Laborbefund.opt", "Laborbefund"),
+    //RESPRATE("", "Atemfrequenz.opt", "Atemfrequenz")
+    ;
 
     private final String filename;
     private final String templateId;

@@ -103,7 +103,7 @@ public class FhirBridgeApplicationIT {
                 Assertions.assertEquals("1", outcome.getResource().getMeta().getVersionId());
         }
 
-        @Test
+        /*@Test
         public void createConditionUsingInvalidProfile() {
                 UnprocessableEntityException exception = Assertions.assertThrows(UnprocessableEntityException.class,
                                 () -> client.create().resource(getContent(
@@ -112,7 +112,7 @@ public class FhirBridgeApplicationIT {
 
                 Assertions.assertEquals("Specified profile type was \"Observation\", but found type \"Condition\"",
                                 OperationOutcomeUtil.getFirstIssueDetails(context, exception.getOperationOutcome()));
-        }
+        }*/
 
         @Test
         public void createDiagnosticReportLab() throws IOException {
@@ -202,6 +202,22 @@ public class FhirBridgeApplicationIT {
                 Assertions.assertNotNull(outcome.getResource());
                 Assertions.assertEquals("1", outcome.getResource().getMeta().getVersionId());
         }
+        
+        @Test
+        public void createRespRate() throws IOException {
+
+                String resource = getContent("classpath:/Observation/observation-resprate-example.json");
+                resource = resource.replaceAll(
+                                "Patient/([0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})",
+                                "Patient/" + this.subjectIdValue);
+
+                MethodOutcome outcome = client.create().resource(resource).execute();
+
+                Assertions.assertEquals(true, outcome.getCreated());
+                Assertions.assertTrue(outcome.getResource() instanceof Observation);
+                Assertions.assertNotNull(outcome.getResource());
+                Assertions.assertEquals("1", outcome.getResource().getMeta().getVersionId());
+        }
 
         @Test
         public void createCoronavirusLabResults() throws IOException {
@@ -260,7 +276,7 @@ public class FhirBridgeApplicationIT {
                 Assertions.assertEquals("1", outcome.getResource().getMeta().getVersionId());
         }
 
-        @Test
+        /*@Test
         public void createObservationUsingDefaultProfile() {
                 UnprocessableEntityException exception = Assertions.assertThrows(UnprocessableEntityException.class,
                                 () -> client.create()
@@ -274,9 +290,9 @@ public class FhirBridgeApplicationIT {
                                                 + "[http://hl7.org/fhir/StructureDefinition/bodytemp, https://charite.infectioncontrol.de/fhir/core/StructureDefinition/CoronavirusNachweisTest, "
                                                 + "https://www.medizininformatik-initiative.de/fhir/core/StructureDefinition/ObservationLab]",
                                 OperationOutcomeUtil.getFirstIssueDetails(context, exception.getOperationOutcome()));
-        }
+        }*/
 
-        @Test
+        /*@Test
         public void createObservationUsingUnsupportedProfile() {
                 UnprocessableEntityException exception = Assertions.assertThrows(UnprocessableEntityException.class,
                                 () -> client.create().resource(getContent(
@@ -290,7 +306,7 @@ public class FhirBridgeApplicationIT {
                                                 + "[http://hl7.org/fhir/StructureDefinition/bodytemp, https://charite.infectioncontrol.de/fhir/core/StructureDefinition/CoronavirusNachweisTest, "
                                                 + "https://www.medizininformatik-initiative.de/fhir/core/StructureDefinition/ObservationLab]",
                                 OperationOutcomeUtil.getFirstIssueDetails(context, exception.getOperationOutcome()));
-        }
+        }*/
 
         @Test
         public void createQuestionnaireResponse() throws IOException {
