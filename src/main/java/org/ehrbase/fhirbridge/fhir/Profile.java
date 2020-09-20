@@ -17,6 +17,10 @@ public enum Profile {
 
     BODY_TEMP("http://hl7.org/fhir/StructureDefinition/bodytemp", ResourceType.Observation),
     
+    BODY_WEIGHT("http://hl7.org/fhir/StructureDefinition/bodyweight", ResourceType.Observation),
+    
+    RESPIRATORY_RATE("http://hl7.org/fhir/StructureDefinition/resprate", ResourceType.Observation),
+    
     FIO2("https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/FiO2", ResourceType.Observation),
     
     BLOOD_PRESSURE("https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/blood-pressure", ResourceType.Observation),

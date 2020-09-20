@@ -11,7 +11,8 @@ public enum OperationalTemplateData {
     CORONA_LAB("", "Laborbefund.opt", "Laborbefund"),
     FI02("", "Beatmungswerte.opt", "Beatmungswerte"),
     CORONA_BLOOD_PRESSURE("", "Blutdruck.opt", "Blutdruck"),
-    HEART_RATE("", "Herzfrequenz.opt", "Herzfrequenz");
+    HEART_RATE("", "Körpergewicht.opt", "Körpergewicht"),
+    BODY_WEIGHT("", "", "");
 
     private final String filename;
     private final String templateId;

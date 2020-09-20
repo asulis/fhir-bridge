@@ -19,6 +19,7 @@ import org.ehrbase.fhirbridge.mapping.FHIRObservationFiO2OpenehrBeatmungswerte;
 import org.ehrbase.fhirbridge.mapping.FHIRObservationHeartRateOpenehrHeartRate;
 import org.ehrbase.fhirbridge.mapping.FhirDiagnosticReportOpenehrLabResults;
 import org.ehrbase.fhirbridge.mapping.FhirObservationBloodPressureOpenehrBloodPressure;
+import org.ehrbase.fhirbridge.mapping.FhirObservationBodyWeightOpenehrBodyWeight;
 import org.ehrbase.fhirbridge.mapping.FhirObservationTempOpenehrBodyTemperature;
 import org.ehrbase.fhirbridge.mapping.FhirSarsTestResultOpenehrPathogenDetection;
 import org.ehrbase.fhirbridge.opt.beatmungswertecomposition.BeatmungswerteComposition;
@@ -26,6 +27,7 @@ import org.ehrbase.fhirbridge.opt.blutdruckcomposition.BlutdruckComposition;
 import org.ehrbase.fhirbridge.opt.herzfrequenzcomposition.HerzfrequenzComposition;
 import org.ehrbase.fhirbridge.opt.intensivmedizinischesmonitoringkorpertemperaturcomposition.IntensivmedizinischesMonitoringKorpertemperaturComposition;
 import org.ehrbase.fhirbridge.opt.kennzeichnungerregernachweissarscov2composition.KennzeichnungErregernachweisSARSCoV2Composition;
+import org.ehrbase.fhirbridge.opt.korpergewichtcomposition.KorpergewichtComposition;
 import org.ehrbase.fhirbridge.opt.laborbefundcomposition.LaborbefundComposition;
 import org.ehrbase.fhirbridge.rest.EhrbaseService;
 import org.hl7.fhir.r4.model.*;
@@ -476,6 +478,17 @@ public class ObservationResourceProvider extends AbstractResourceProvider {
                 //UUID ehrId = service.createEhr(); // <<< reflections error!
                 VersionUid versionUid = service.saveTemp(ehrUid, composition);
                 logger.info("Composition created with UID {} for FHIR profile {}", versionUid, Profile.BODY_TEMP);
+            }
+            else if (ProfileUtils.hasProfile(observation, Profile.BODY_WEIGHT)) {
+
+                logger.info(">>>>>>>>>>>>>>>>>> OBSERVATION WEIGHT");
+
+                // FHIR Observation Temp => openEHR COMPOSITION
+                KorpergewichtComposition composition = FhirObservationBodyWeightOpenehrBodyWeight.map(observation);
+
+                //UUID ehrId = service.createEhr(); // <<< reflections error!
+                VersionUid versionUid = service.saveWeight(ehrUid, composition);
+                logger.info("Composition created with UID {} for FHIR profile {}", versionUid, Profile.BODY_WEIGHT);
             }
             else if (ProfileUtils.hasProfile(observation, Profile.FIO2)) {
 
