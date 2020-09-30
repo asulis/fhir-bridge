@@ -9,6 +9,7 @@ import org.ehrbase.client.aql.record.Record1;
 import org.ehrbase.client.aql.record.Record2;
 import org.ehrbase.client.openehrclient.VersionUid;
 import org.ehrbase.client.openehrclient.defaultrestclient.DefaultRestClient;
+import org.ehrbase.fhirbridge.opt.atemfrequenzcomposition.AtemfrequenzComposition;
 import org.ehrbase.fhirbridge.opt.beatmungswertecomposition.BeatmungswerteComposition;
 import org.ehrbase.fhirbridge.opt.blutdruckcomposition.BlutdruckComposition;
 import org.ehrbase.fhirbridge.opt.diagnosecomposition.DiagnoseComposition;
@@ -130,6 +131,21 @@ public class EhrbaseService {
         {
             e.printStackTrace();
             throw new UnprocessableEntityException("There was a Error in saveHeartRate", e);
+        }
+
+        return composition.getVersionUid();
+    }
+    
+    public VersionUid saveRespRate(UUID ehrId, AtemfrequenzComposition composition) {
+
+        try
+        {
+            client.compositionEndpoint(ehrId).mergeCompositionEntity(composition);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            throw new UnprocessableEntityException("There was a Error in saveRespRate", e);
         }
 
         return composition.getVersionUid();
